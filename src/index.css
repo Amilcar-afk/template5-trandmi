@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-50: 0.97 0.008 85;
+  --background-100: 0.94 0.012 84;
+  --background-200: 0.90 0.018 83;
+  --background-300: 0.85 0.025 82;
+  --background-400: 0.80 0.030 80;
+  --background-500: 0.75 0.035 78;
+  --background-600: 0.68 0.040 75;
+  --background-700: 0.55 0.045 72;
+  --background-800: 0.42 0.045 68;
+  --background-900: 0.30 0.040 65;
+  --background-950: 0.18 0.030 60;
+
+  --foreground-50: 0.95 0.004 260;
+  --foreground-100: 0.88 0.005 260;
+  --foreground-200: 0.78 0.006 260;
+  --foreground-300: 0.65 0.008 260;
+  --foreground-400: 0.50 0.010 260;
+  --foreground-500: 0.38 0.010 260;
+  --foreground-600: 0.28 0.008 260;
+  --foreground-700: 0.20 0.006 260;
+  --foreground-800: 0.14 0.005 260;
+  --foreground-900: 0.08 0.004 260;
+  --foreground-950: 0.04 0.003 260;
+
+  --primary-50: 0.95 0.04 84;
+  --primary-100: 0.90 0.06 84;
+  --primary-200: 0.85 0.08 84;
+  --primary-300: 0.80 0.10 84;
+  --primary-400: 0.76 0.11 84;
+  --primary-500: 0.72 0.12 85;
+  --primary-600: 0.65 0.11 84;
+  --primary-700: 0.55 0.10 82;
+  --primary-800: 0.45 0.08 80;
+  --primary-900: 0.35 0.06 78;
+  --primary-950: 0.22 0.04 75;
+
+  --accent-50: 0.90 0.04 10;
+  --accent-100: 0.80 0.06 10;
+  --accent-200: 0.68 0.08 10;
+  --accent-300: 0.55 0.10 10;
+  --accent-400: 0.40 0.12 10;
+  --accent-500: 0.28 0.13 10;
+  --accent-600: 0.22 0.11 10;
+  --accent-700: 0.17 0.09 10;
+  --accent-800: 0.12 0.06 10;
+  --accent-900: 0.08 0.04 10;
+  --accent-950: 0.04 0.02 10;
+
+  --secondary-50: 0.96 0.012 82;
+  --secondary-100: 0.92 0.018 82;
+  --secondary-200: 0.87 0.025 80;
+  --secondary-300: 0.82 0.030 80;
+  --secondary-400: 0.78 0.035 78;
+  --secondary-500: 0.75 0.035 78;
+  --secondary-600: 0.68 0.038 76;
+  --secondary-700: 0.55 0.040 74;
+  --secondary-800: 0.42 0.035 72;
+  --secondary-900: 0.30 0.030 68;
+  --secondary-950: 0.18 0.020 65;
+
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: oklch(var(--background-50));
+  color: oklch(var(--foreground-950));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: oklch(var(--primary-500) / 0.3);
+  color: oklch(var(--foreground-950));
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(var(--foreground-950));
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--primary-500) / 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--primary-500) / 0.6);
+}
+
+@keyframes fadeReveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.honeypot-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
